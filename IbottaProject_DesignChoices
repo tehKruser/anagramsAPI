@@ -2,6 +2,9 @@
 ######################
 # Command Line:
 
+Redis Start:		redis-server --daemonize yes
+Redis Shutdown:		redis-cli shutdown
+
 From Ubuntu home: 	cd /mnt/c/Users/justi/OneDrive/Documents/GitHub/anagramsAPI
 
 Shorten prompt:		PS1='\u:\W\$ '
@@ -11,6 +14,8 @@ Deploy locally:		FLASK_APP=anagrams.py flask run
 API GET:			curl -i -X GET http://127.0.0.1:5000/anagrams/read.json
 
 API POST:			curl -i -X POST -d '{ "words": ["read", "dear", "dare"] }' http://127.0.0.1:5000/words.json
+
+API POST FIX:		curl -i -X POST -H "Content-Type: application/json" -d '{ "words": ["read", "dear", "dare"] }' http://127.0.0.1:5000/words.json
 
 
 #######################
