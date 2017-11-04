@@ -12,8 +12,14 @@ class TestCases < Test::Unit::TestCase
   def setup
     @client = AnagramClient.new(ARGV)
 
-    # add words to the dictionary
-    @client.post('/words.json', nil, {"words" => ["read", "dear", "dare"] }) rescue nil
+    #slice = ["read", "dear", "dare"]
+	#print(slice)
+	slice = []
+	slice.push("read")
+	slice.push("dear")
+	slice.push("dare")
+	# add words to the dictionary
+    @client.post('/words.json', nil, {"words" => slice }) rescue nil
   end
 
   # runs after each test

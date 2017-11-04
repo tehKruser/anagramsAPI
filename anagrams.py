@@ -82,6 +82,67 @@ def delete_word(word=None, data_format=None):
 		return '', 204
 
 
+@app.route("/words/stats.<data_format>", methods=['GET'])
+def stats(data_format=None):
+	if request.method == 'GET':
+		#dbSize = r.dbsize()
+		mList = []
+		keyEntriesSum = 0
+		keyLengthSum = 0
+		minLength = 999
+		maxLength = 0
+		medianLength = 0
+		averageLength = 0
+
+		for key in r.scan_iter("*"):
+			keyLength = len(key)
+			keyEntries = r.scard(key)
+			# list for length of key and number of entries
+			keyStat = []
+			keyStat.append(keyLength)
+			keyStat.append(keyEntries)
+			mList.append(keyStat)
+			keyLengthSum += (keyLength * keyEntries)
+			keyEntriesSum += keyEntries
+			if keyLength < minLength:
+				minLength = keyLength
+			if keyLength > maxLength:
+				maxLength = keyLength
+
+		if keyEntriesSum == 0:
+			averageLength = 0
+			minLength = 0
+		else:
+			averageLength = keyLengthSum / keyEntriesSum
+
+		mList.sort(key=lambda x: x[0])
+		
+
+		mListSum = 0
+		for ea in mList:
+			mListSum += ea[1]
+			if mListSum > (keyEntriesSum / 2):
+				medianLength = ea[0]
+				break
+			elif mListSum == (keyEntriesSum / 2):
+				if keyEntriesSum % 2 == 0:
+					medianLength = (ea[0] * 2 + 1) / 2
+				else:
+					medianLength = ea[0]
+				break
+
+		stats_data = {}
+		stats_data["count"] = keyEntriesSum
+		length_data = {}
+		length_data["min"] = minLength
+		length_data["max"] = maxLength
+		length_data["average"] = averageLength
+		length_data["median"] = medianLength
+		stats_data["length"] = length_data
+
+		return jsonify(stats_data), 200
+
+
 @app.errorhandler(404)
 def not_found(error):
     return "404 Not Found: Invalid REST URL\n", 404
