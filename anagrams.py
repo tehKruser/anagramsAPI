@@ -14,6 +14,11 @@ r = redis.StrictRedis(host='localhost', port=6379, db=0)
 def keyWord(word):
 	return ''.join(sorted(word)).lower()
 
+def method_is_delete(request):
+    '''Workaround for a lack of delete method is the HTML spec for forms.'''
+    return request.form.get('_method') == 'DELETE'
+
+
 @app.route("/words.<data_format>", methods=['POST', 'DELETE'])
 def words(data_format=None):
 	if request.method == 'POST':
@@ -35,14 +40,20 @@ def words(data_format=None):
 			return '', 201
 		
 		else:
-			return '400 Bad Request : JSON data not specified\n', 400
+			return '400 Bad Request : only JSON data supported at this time\n', 400
+	
+	if request.method == 'DELETE':
+		r.flushall()
+		return '', 204
+		
+
 
 
 @app.route("/anagrams/<word>.<data_format>", methods=['GET'])
 def word(word=None, data_format=None):
 	if request.method == 'GET':
 		if data_format == 'json':
-			count = len(list(r.smembers(keyWord(word))))
+			count = r.scard(keyWord(word))
 			try:
 				limit = int(request.args.get('limit'))
 				anagrams = list(r.srandmember(keyWord(word), limit))
@@ -62,8 +73,17 @@ def word(word=None, data_format=None):
 			return jsonify({'anagrams' : anagrams}), 200
 
 		else:
-			return '400 Bad Request : JSON data not specified\n', 400
+			return '400 Bad Request : only JSON data supported at this time\n', 400
+
+@app.route("/words/<word>.<data_format>", methods=['DELETE'])
+def delete_word(word=None, data_format=None):
+	if request.method == 'DELETE':
+		r.srem(keyWord(word), word)
+		return '', 204
 
 
+@app.errorhandler(404)
+def not_found(error):
+    return "404 Not Found: Invalid REST URL\n", 404
 
 
