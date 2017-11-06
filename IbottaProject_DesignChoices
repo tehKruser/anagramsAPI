@@ -23,6 +23,12 @@ API POST FIX:		curl -i -X POST -H "Content-Type: application/json" -d '{ "words"
 
 API GET stats:		curl -i -X GET http://127.0.0.1:5000/words/stats.json
 
+API GET most:		curl -i -X GET http://127.0.0.1:5000/anagrams/groupsOfMinimumSize/max.json
+
+API check angarams (good):		curl -i -X POST -d '{ "words": ["read", "dear", "dare"] }' http://127.0.0.1:5000/anagrams.json
+
+API check angarams (bad):		curl -i -X POST -d '{ "words": ["dork", "dear", "dare"] }' http://127.0.0.1:5000/anagrams.json
+
 
 #######################
 # Tools design notes:
@@ -55,6 +61,7 @@ b)My school's Linux server didn't have Redis (don't have permissions to install)
 # Choosing sets
 - 
 - don't care about order, faster than sorted sets ( I assume)
+- Sets are a lot like lists, except they provide set-semantics (no duplicate values in a given set).
 
 
 
