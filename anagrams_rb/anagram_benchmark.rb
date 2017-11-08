@@ -8,7 +8,16 @@ require 'benchmark/bigo'
 
 FILENAME = 'dictionary.txt.gz'
 SLICE_SIZE = 100
+MAX_I = 1_000
+MAX_J_MULT = 10
+INC_I_MULT = 10
+INC_J_MULT = 2
+POST_BM = false
+GET_BM = false
+DELETE_BM = false
+GET_STATS_BM = false
 
+@client = AnagramClient.new(ARGV)
 
 def data(filename)
 	#puts("Creating array...")
@@ -17,53 +26,173 @@ def data(filename)
 	end
 end
 
-def post_dictionary(array)
-	#puts("Posting data to API...")
-
-	@client = AnagramClient.new(ARGV)
-
-	array.each_slice(SLICE_SIZE) do |slice|
-		@client.post('/words.json', nil, {"words" => slice }) rescue nil
-	end
-end
-
-def delete_all()
-	@client = AnagramClient.new(ARGV)
-	@client.delete('/words.json') rescue nil
-end
+words = data(FILENAME)
 
 # Post Benchmarking
-puts("N\tTime")
-run_data = []
-i = 10
-while i <= 1_000
-	j = i
-	limit = j * 10
-	while j <= limit
-		data = data(FILENAME)
-		row_data = []
-		delete_all()
-		data = data.sample(j)
-		time = Benchmark.realtime do
-			post_dictionary(data)
+if POST_BM
+	puts("<<<<<POST Words Benchmarking>>>>\nN\tTime")
+	run_data = []
+	i = 10
+	while i <= MAX_I
+		j = i
+		limit = j * MAX_J_MULT
+		while j <= limit
+			@client.delete('/words.json') rescue nil
+
+			data = words.sample(j)
+			
+			time = Benchmark.realtime do
+				data.each_slice(SLICE_SIZE) do |slice|
+					@client.post('/words.json', nil, {"words" => slice }) rescue nil
+				end
+			end
+
+			run_data.push([j, time])
+
+			puts("#{j}\t#{time}")
+
+			j = j * INC_J_MULT
 		end
-		run_data.push([j, time])
-		puts("#{j}\t#{time}")
-		j = j * 2
+		i = i * INC_I_MULT
 	end
-	i = i * 10
+
+	file_content = ""
+	run_data.each_with_index do |x, xi|
+		x.each_with_index do |y, yi|
+			file_content = file_content + "#{y}" + ", "
+		end
+		file_content = file_content.chomp(", ")
+		file_content = file_content + "\n"
+	end
+	File.write('benchmark_post.csv', file_content)
 end
 
-file_content = ""
-run_data.each_with_index do |x, xi|
-	x.each_with_index do |y, yi|
-		file_content = file_content + "#{y}" + ", "
+
+# Get Anagram Benchmarking
+if GET_BM
+	puts("<<<<<GET Anagrams Benchmarking>>>>\nN\tTime")
+	run_data = []
+	i = 10
+	while i <= MAX_I
+		j = i
+		limit = j * MAX_J_MULT
+		while j <= limit
+			@client.delete('/words.json') rescue nil
+			
+			data = words.sample(j)
+			data.each_slice(SLICE_SIZE) do |slice|
+				@client.post('/words.json', nil, {"words" => slice }) rescue nil
+			end
+
+			time = Benchmark.realtime do
+				data.each do |word|
+     				 @client.get("/anagrams/#{word}.json")
+   				end
+			end
+
+			run_data.push([j, time])
+
+			puts("#{j}\t#{time}")
+
+			j = j * INC_J_MULT
+		end
+		i = i * INC_I_MULT
 	end
-	file_content = file_content.chomp(", ")
-	file_content = file_content + "\n"
+
+	file_content = ""
+	run_data.each_with_index do |x, xi|
+		x.each_with_index do |y, yi|
+			file_content = file_content + "#{y}" + ", "
+		end
+		file_content = file_content.chomp(", ")
+		file_content = file_content + "\n"
+	end
+	File.write('benchmark_get.csv', file_content)
 end
 
-File.write('benchmark_post.csv', file_content)
+# Delete Anagram Benchmarking
+if DELETE_BM
+	puts("<<<<<DELETE Words Benchmarking>>>>\nN\tTime")
+	run_data = []
+	i = 10
+	while i <= MAX_I
+		j = i
+		limit = j * MAX_J_MULT
+		while j <= limit
+			@client.delete('/words.json') rescue nil
+			
+			data = words.sample(j)
+			data.each_slice(SLICE_SIZE) do |slice|
+				@client.post('/words.json', nil, {"words" => slice }) rescue nil
+			end
+
+			time = Benchmark.realtime do
+				data.each do |word|
+     				 @client.delete("/words/#{word}.json")
+   				end
+			end
+
+			run_data.push([j, time])
+
+			puts("#{j}\t#{time}")
+
+			j = j * INC_J_MULT
+		end
+		i = i * INC_I_MULT
+	end
+
+	file_content = ""
+	run_data.each_with_index do |x, xi|
+		x.each_with_index do |y, yi|
+			file_content = file_content + "#{y}" + ", "
+		end
+		file_content = file_content.chomp(", ")
+		file_content = file_content + "\n"
+	end
+	File.write('benchmark_delete.csv', file_content)
+end
+
+# Get Stats Benchmarking
+if GET_STATS_BM
+	puts("<<<<<GET Stats Benchmarking>>>>\nN\tTime")
+	run_data = []
+	i = 10
+	while i <= MAX_I
+		j = i
+		limit = j * MAX_J_MULT
+		while j <= limit
+			@client.delete('/words.json') rescue nil
+			
+			data = words.sample(j)
+			data.each_slice(SLICE_SIZE) do |slice|
+				@client.post('/words.json', nil, {"words" => slice }) rescue nil
+			end
+
+			time = Benchmark.realtime do
+     			@client.get("/words/stats.json")
+			end
+
+			run_data.push([j, time])
+
+			puts("#{j}\t#{time}")
+
+			j = j * INC_J_MULT
+		end
+		i = i * INC_I_MULT
+	end
+
+	file_content = ""
+	run_data.each_with_index do |x, xi|
+		x.each_with_index do |y, yi|
+			file_content = file_content + "#{y}" + ", "
+		end
+		file_content = file_content.chomp(", ")
+		file_content = file_content + "\n"
+	end
+	File.write('benchmark_stats.csv', file_content)
+end
+
+
 
 
 ###################################
