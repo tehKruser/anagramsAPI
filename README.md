@@ -71,6 +71,8 @@ Name  | Type         | Description
 ----- | ------------ | -------------
 words | String array | words as strings to be posted to data store are in an array
 
+Example: ```curl -i -X POST -d '{ "words": ["read", "dear", "dare"] }'```
+
 ## Delete a single word
 
 
