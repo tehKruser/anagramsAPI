@@ -3,19 +3,20 @@
 require_relative 'anagram_client'
 require 'zlib'
 require "benchmark"
-require 'benchmark/bigo'
+#require 'benchmark/bigo'
 
 
 FILENAME = 'dictionary.txt.gz'
+RESULTS_DIR = 'benchmark_results/'
 SLICE_SIZE = 100
 MAX_I = 1_000
 MAX_J_MULT = 10
 INC_I_MULT = 10
 INC_J_MULT = 2
-POST_BM = false
-GET_BM = false
-DELETE_BM = false
-GET_STATS_BM = false
+POST_BM = true
+GET_BM = true
+DELETE_BM = true
+GET_STATS_BM = true
 
 @client = AnagramClient.new(ARGV)
 
@@ -64,7 +65,7 @@ if POST_BM
 		file_content = file_content.chomp(", ")
 		file_content = file_content + "\n"
 	end
-	File.write('benchmark_post.csv', file_content)
+	File.write(RESULTS_DIR + 'benchmark_post.csv', file_content)
 end
 
 
@@ -107,7 +108,7 @@ if GET_BM
 		file_content = file_content.chomp(", ")
 		file_content = file_content + "\n"
 	end
-	File.write('benchmark_get.csv', file_content)
+	File.write(RESULTS_DIR + 'benchmark_get.csv', file_content)
 end
 
 # Delete Anagram Benchmarking
@@ -149,7 +150,7 @@ if DELETE_BM
 		file_content = file_content.chomp(", ")
 		file_content = file_content + "\n"
 	end
-	File.write('benchmark_delete.csv', file_content)
+	File.write(RESULTS_DIR + 'benchmark_delete.csv', file_content)
 end
 
 # Get Stats Benchmarking
@@ -189,10 +190,8 @@ if GET_STATS_BM
 		file_content = file_content.chomp(", ")
 		file_content = file_content + "\n"
 	end
-	File.write('benchmark_stats.csv', file_content)
+	File.write(RESULTS_DIR + 'benchmark_stats.csv', file_content)
 end
-
-
 
 
 ###################################

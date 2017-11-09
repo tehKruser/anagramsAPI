@@ -88,8 +88,8 @@ class TestCases < Test::Unit::TestCase
     assert_equal('200', res.code, "Unexpected response code")
 
     body = JSON.parse(res.body)
-	
-	puts(body['anagrams'])
+  
+  puts(body['anagrams'])
 
     assert_equal(0, body['anagrams'].size)
   end
@@ -246,9 +246,14 @@ class TestCases < Test::Unit::TestCase
 
     body = JSON.parse(res.body)
 
-    expected_sets = [{"anagrams"=>[%w(read dear dare), %w(cat act tac)], "size"=>3}]
-
-    assert_equal(expected_sets, body['sets'])
+    expected_sets = [{"anagrams"=>[["read", "dear", "dare"], ["cat", "act", "tac"]], "size"=>3}]
+    
+    expected_sets.zip(body['sets']).each do |expected, actual|
+      (expected["anagrams"].sort).zip(actual["anagrams"].sort).each do |expected_anagrams, actual_anagrams|
+        assert_equal(expected_anagrams.sort, actual_anagrams.sort)
+      end
+      assert_equal(expected["size"], actual["size"])
+    end
   end
 
   def test_fetching_anagrams_of_size
@@ -265,13 +270,18 @@ class TestCases < Test::Unit::TestCase
 
     expected_sets = [{"anagrams"=>[%w(act cat)], "size"=>2}, {"anagrams"=>[%w(read dear dare)], "size"=>3}]
 
-    assert_equal(expected_sets, body['sets'])
+    expected_sets.zip(body['sets']).each do |expected, actual|
+      (expected["anagrams"].sort).zip(actual["anagrams"].sort).each do |expected_anagrams, actual_anagrams|
+        assert_equal(expected_anagrams.sort, actual_anagrams.sort)
+      end
+      assert_equal(expected["size"], actual["size"])
+    end
   end
 
   def test_fetching_anagrams_of_size_from_max
     #pend
     
-    # post more words to data store
+    # post addtional words
     res = @client.post('/words.json', nil, {"words" => ["it", "cat", "act", "happy"] })
 
     res = @client.get('/anagrams/size/-2.json')
@@ -282,7 +292,12 @@ class TestCases < Test::Unit::TestCase
 
     expected_sets = [{"anagrams"=>[%w(act cat)], "size"=>2}, {"anagrams"=>[%w(read dear dare)], "size"=>3}]
 
-    assert_equal(expected_sets, body['sets'])
+    expected_sets.zip(body['sets']).each do |expected, actual|
+      (expected["anagrams"].sort).zip(actual["anagrams"].sort).each do |expected_anagrams, actual_anagrams|
+        assert_equal(expected_anagrams.sort, actual_anagrams.sort)
+      end
+      assert_equal(expected["size"], actual["size"])
+    end
   end
 
   def test_fetching_anagrams_with_propernouns
@@ -297,9 +312,9 @@ class TestCases < Test::Unit::TestCase
 
     body = JSON.parse(res.body)
 
-    expected_anagrams = %w(Drae dear dare)
+    expected = {"anagrams"=>["Drae", "dear", "dare"]}
 
-    assert_equal(expected_anagrams, body['anagrams'])
+    assert_equal(expected["anagrams"].sort, body["anagrams"].sort)
   end
 
   def test_fetching_anagrams_no_propernouns
@@ -314,9 +329,9 @@ class TestCases < Test::Unit::TestCase
 
     body = JSON.parse(res.body)
 
-    expected_anagrams = %w(dear dare)
+    expected = {"anagrams"=>["dear", "dare"]}
 
-    assert_equal(expected_anagrams, body['anagrams'])
+    assert_equal(expected["anagrams"].sort, body["anagrams"].sort)
   end
 
   def test_deleting_word_and_its_anagrams_valid_word

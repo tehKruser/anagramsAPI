@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
-require_relative 'anagram_client'
+require_relative '../test/anagram_client'
 require 'zlib'
 require "benchmark"
 
 
-FILENAME = 'dictionary.txt.gz'
+FILENAME = '../test/dictionary.txt.gz'
 SLICE_SIZE = 1000
 
 def data(filename)
@@ -33,4 +33,3 @@ end
 data = data(FILENAME)
 delete_all()
 puts Benchmark.measure {post_dictionary(data)}
-
