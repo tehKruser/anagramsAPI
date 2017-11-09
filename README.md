@@ -19,22 +19,6 @@ Contents
 10. [Testing](#testing)
 11. [Other features that could be useful](#other-features-that-could-be-useful)
 
-
-The features of this API allow a client to:
-* Add words to the data store
-* Delete a single word, a word and its anagrams or all words from the data store
-* Get anagrams for a word
-  * a query parameter provides the option to filter proper nouns from the anagram set
-  * a query parameter provides the option to limit the number of anagrams to return
-* Get words with the most anagrams
-* Get words with a number of anagrams >= X
-* Get stats on the words contained within the data store
-  * count, min/max/median/average word length
-
-
-
-
-
 ## Run locally
 
 
