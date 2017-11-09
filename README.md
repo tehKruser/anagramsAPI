@@ -65,7 +65,7 @@ The features of this API allow a client to:
 
 
 
-## Get words with at least X anagrams / Get most words with the most anagrams
+## Get words with at least X anagrams
 
 
 
