@@ -69,7 +69,7 @@ Add words to the data store:
 
 Name  | Type         | Description
 ----- | ------------ | -------------
-words | String array | words as strings to be posted to data store are in an array
+words | string array | words as strings to be posted to data store are in an array
 
 Example: ```curl -i -X POST -d '{ "words": ["read", "dear", "dare"] }' http://127.0.0.1:5000/words.json```
 
@@ -91,7 +91,7 @@ HTTP/1.0 204 NO CONTENT
 ```
 
 ## Delete a word and its anagrams
-Removes a word from the data store:
+Removes a word and its anagrams from the data store:
 
 `DELETE /words/:word/anagrams.json`
 
@@ -115,7 +115,32 @@ HTTP/1.0 204 NO CONTENT
 ```
 
 ## Get anagrams for a word
+Get anagrams for a word:
+`GET /anagrams/:word.json`
 
+**Parameters**
+
+Name        | Type          | Description
+----------- | ------------- | -------------
+limit       | int           | maximum number of anagrams to return
+----------- | ------------- | -------------
+propernouns | boolean       | true (default): allow propernouns
+false: do not return propernouns
+
+Example: ```curl -i -X GET http://localhost:5000/anagrams/read.json```
+
+**Response**
+```
+HTTP/1.0 200 OK
+
+{
+  "anagrams": [
+    "Drae",
+    "dear",
+    "dare"
+  ]
+}
+```
 
 
 
