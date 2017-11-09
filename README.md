@@ -14,10 +14,10 @@ Contents
 5. [Delete all words from the data store](#delete-all-words-from-the-data-store)
 6. [Get anagrams for a word](#get-anagrams-for-a-word)
 7. [Get words with at least X anagrams](#get-words-with-at-least-x-anagrams)
-8. [Get stats on words contained in the data store]()
-9. [Design]()
-10. [Testing]()
-11. [Other features that could be useful]()
+8. [Get stats on words contained in the data store](#get-stats-on-words-contained-in-the-data-store)
+9. [Design](#design)
+10. [Testing](#testing)
+11. [Other features that could be useful](#other-features-that-could-be-useful)
 
 
 The features of this API allow a client to:
