@@ -1,6 +1,4 @@
-
-######################
-# Command Line:
+### Command Line:
 
 Redis Start:		redis-server --daemonize yes
 Redis Shutdown:		redis-cli shutdown
@@ -19,40 +17,12 @@ API POST:			curl -i -X POST -d '{ "words": ["read", "dear", "dare"] }' http://12
 API DELETE all:		curl -i -X DELETE http://localhost:5000/words.json
 API DELETE single:	curl -i -X DELETE http://localhost:5000/words/read.json	
 
-API POST FIX:		curl -i -X POST -H "Content-Type: application/json" -d '{ "words": ["read", "dear", "dare"] }' http://127.0.0.1:5000/words.json
+API POST ALT:		curl -i -X POST -H "Content-Type: application/json" -d '{ "words": ["read", "dear", "dare"] }' http://127.0.0.1:5000/words.json
 
 API GET stats:		curl -i -X GET http://127.0.0.1:5000/words/stats.json
 
-API GET most:		curl -i -X GET http://127.0.0.1:5000/anagrams/groupsOfMinimumSize/max.json
+API GET most:		curl -i -X GET http://127.0.0.1:5000/sets/anagrams/size/max.json
 
 API check angarams (good):		curl -i -X POST -d '{ "words": ["read", "dear", "dare"] }' http://127.0.0.1:5000/anagrams.json
 
 API check angarams (bad):		curl -i -X POST -d '{ "words": ["dork", "dear", "dare"] }' http://127.0.0.1:5000/anagrams.json
-
-
-#######################
-# Tools design notes:
-
-# Flask
-- Originally was thinking about hosting on Google App Engine's Python Flexible Environment, where it showed examples of the Flask framework. Looked it over and decided it would work for my needs.
-
-# Redis
-- Wanted to use cached memory for performance. Never used Redis before, but heard it was wicked fast. Decided to learn it (documentation and Pluralsight videos). This means I needed to use Linux... which I didn't have.
-- How to scale????
-
-# Ubuntu for Windows 10
-- Found out that with a recent update to Windows 10, they released a Windows Subsystem for Linux and the Ubuntu for Windows Shell application. Decided this was the perfect environment to use Redis and deploy a local app.
-
-# Local vs Cloud
-- Originally going to deploy app to the Cloud because:
-a)I really wanted to use Redis, which isn't offically supported by Windows. I have Windows.
-b)My school's Linux server didn't have Redis (don't have permissions to install).
-- The Ubuntu for Windows app allowed me to be able to develop and deploy the app locally, which would speed up development time.
-
-
-****REDIS DESIGN NOTES*****
-
-# Sets or Lists
-- Requirements: speed, order doesn't matter, no duplicates
-- Sets are good for all of the above. Also, sets are O(1) for adding, deleting, finding.
-- Lists have duplicates and are slower than sets - finding can be O(N) which is a problem for huge sets.
