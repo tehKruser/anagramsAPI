@@ -66,6 +66,7 @@ Add words to the data store:
 `POST /words.json`
 
 **Input**
+
 Name  | Type         | Description
 ----- | ------------ | -------------
 words | String array | words as strings to be posted to data store are in an array
