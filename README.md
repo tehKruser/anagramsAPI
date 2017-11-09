@@ -208,7 +208,27 @@ HTTP/1.0 200 OK
 
 ## Design
 
-- Why Redis?
+**Data store Design with Redis**
+
+Visuals here. 
+
+**Why Redis?**
+
+I chose Redis because it is a fast, in-memory key-value data store that comes with a set of versatile in-memory data structures. 
+
+The key-value aspect is important because I decided on using a key-value method for storing words in anagram groups. 
+
+The versatile data structures is an ideal solution to:
+- store the anagrams in sets with no duplicates,
+- and track information about word count and lengths in a list.
+
+Also, did I say it was fast? Since I was only using sets and lists, the add/delete operations were of time complexity O(1), or O(N) for N items being added or deleted. The number of words in the data store had no effect.
+
+Admittedly, I had not used Redis before, but I had already started researching it prior to the "coffee interview", as it was listed in the Ibotta Platform Engineer job description as a scalable technology. After spending time in tutorials and understanding Redis usage, I decided it would be a good opportunity to showcase my ability to learn and implement a new technology.
+
+**Python and Flask**
+
+I was already familiar with developing API's in Python and Google App Engine using webapp2, so I started researching if Redis could be used in the GAE standard environment. The answer was no, but it could be used with the flexible environment. This bit of research turned me on to Flask, which looked easy and fun, so I decided to use it as the API framework.
 - Why Python/Flask?
 
 
