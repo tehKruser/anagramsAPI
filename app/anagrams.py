@@ -161,7 +161,7 @@ def word(word=None, data_format=None):
 		return data, 200
 
 
-@app.route("/anagrams/size/<min_size>.<data_format>", methods=['GET'])
+@app.route("/sets/anagrams/size/<min_size>.<data_format>", methods=['GET'])
 def anagram_sets(min_size=None, data_format=None):
 	if not isValidDataFormat(data_format):
 		return '400 Bad Request : only JSON data supported at this time\n', 400
