@@ -260,7 +260,7 @@ Finished in 0.3829484 seconds.
 
 POST words
 
-![POST words](img/bm_post_words.jpg "POST words benchmark") 
+![POST words](/img/bm_post_words.jpg "POST words benchmark") 
 
 GET anagrams
 
