@@ -9,11 +9,15 @@ The anagram API is my submission for the Ibotta candidate project. Requirements 
 Contents
 1. [Run locally](#run-locally)
 2. [Add words](#add-words)
-3. [Delete a single word](#Delete-a-single-word)
-
-
-
-
+3. [Delete a single word](#delete-a-single-word)
+4. [Delete a word and its anagrams](#delete-a-word-and-its-anagrams)
+5. [Delete all words from the data store](#delete-all-words-from-the-data-store)
+6. [Get anagrams for a word](#get-anagrams-for-a-word)
+7. [Get words with at least X anagrams / Get most words with the most anagrams](#get-words-with-at-least-x-anagrams-/-get-most-words-with-the-most-anagrams)
+8. [Get stats on words contained in the data store]()
+9. [Design]()
+10. [Testing]()
+11. [Other features that could be useful]()
 
 
 The features of this API allow a client to:
