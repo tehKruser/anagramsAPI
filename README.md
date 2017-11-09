@@ -87,7 +87,7 @@ Example: ```curl -i -X DELETE http://localhost:5000/words/read.json```
 
 **Response**
 ```
-HTTP/1.0 201 CREATED
+HTTP/1.0 204 NO CONTENT
 ```
 
 
