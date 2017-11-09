@@ -184,6 +184,7 @@ HTTP/1.0 200 OK
 ```
 
 ## Check if a set of words are anagrams of eachother
+
 Post a set of words and receive a reponse if all words are anagrams of eachother:
 
 `POST /anagrams.json`
