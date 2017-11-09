@@ -3,7 +3,7 @@ by Justin Kruse
 
 ---
 
-The anagram API is my submission for the Ibotta candidate project. Requirements can be found in the [Ibotta folder](/ibotta).
+This anagram API is my submission for the Ibotta Candidate Project. Requirements can be found in the [Ibotta folder](/ibotta).
 
 ## Contents
 1. [Run locally](#run-locally)
