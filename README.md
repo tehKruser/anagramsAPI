@@ -141,7 +141,43 @@ HTTP/1.0 200 OK
 ```
 
 ## Get words with at least X anagrams
+Get all anagrams with at least :x in the group.
+`GET /anagrams/size/:x.json`
 
+:x can be a value > 1 or "max" to return the anagram set(s) that contains the most words
+
+Example: ```curl -i -X GET http://localhost:5000/anagrams/size/3.json```
+
+**Response**
+```
+HTTP/1.0 200 OK
+
+{
+  "sets": [
+    {
+      "anagrams": [
+        [
+          "act",
+          "tac",
+          "cat"
+        ]
+      ],
+      "size": 3
+    },
+    {
+      "anagrams": [
+        [
+          "read",
+          "Drae",
+          "dear",
+          "dare"
+        ]
+      ],
+      "size": 4
+    }
+  ]
+}
+```
 
 
 
