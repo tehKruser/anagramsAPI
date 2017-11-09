@@ -4,7 +4,7 @@ by Justin Kruse
 ---
 ## Anagrams
 
-  i. [Run locally](#run-locally)
+  i. [Run Locally](#run-locally)
   ii. 
 
 
@@ -25,7 +25,7 @@ The anagram API is my submission for the Ibotta candidate project. The features 
 Project requirement details can be found in the [Ibotta folder](/ibotta).
 
 
-# run locally
+## Run Locally
 
 - project description
 - how to compile and run
