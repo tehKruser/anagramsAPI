@@ -123,9 +123,7 @@ Get anagrams for a word:
 Name        | Type          | Description
 ----------- | ------------- | -------------
 limit       | int           | maximum number of anagrams to return
------------ | ------------- | -------------
-propernouns | boolean       | true (default): allow propernouns
-false: do not return propernouns
+propernouns | boolean       | true (default): allow propernouns  false: do not return propernouns
 
 Example: ```curl -i -X GET http://localhost:5000/anagrams/read.json```
 
