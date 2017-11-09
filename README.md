@@ -260,15 +260,19 @@ Finished in 0.3829484 seconds.
 
 POST words
 
-![POST words](https://github.com/tehKruser/anagramsAPI/tree/master/img/bm_post_words.JPG)
-
 ![POST words](https://tehkruser.github.io/anagramsAPI/img/bm_post_words.JPG)
 
 GET anagrams
 
+![GET words](https://tehkruser.github.io/anagramsAPI/img/bm_get_words.JPG)
+
 DELETE words
 
+![DELETE words](https://tehkruser.github.io/anagramsAPI/img/bm_delete_words.JPG)
+
 GET stats
+
+![GET words](https://tehkruser.github.io/anagramsAPI/img/bm_get_stats.JPG)
 
 
 
