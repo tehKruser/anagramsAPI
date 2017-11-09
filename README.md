@@ -16,7 +16,8 @@ This anagram API is my submission for the Ibotta Candidate Project. Requirements
 8. [Get stats on words contained in the data store](#get-stats-on-words-contained-in-the-data-store)
 9. [Design](#design)
 10. [Testing](#testing)
-11. [Other features that could be useful](#other-features-that-could-be-useful)
+11. [Benchmarking](#benchmarking)
+12. [Other features that could be useful](#other-features-that-could-be-useful)
 
 ---
 
