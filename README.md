@@ -142,11 +142,11 @@ HTTP/1.0 200 OK
 
 ## Get anagram sets containing at least x words
 Get all anagrams with at least :x in the group.
-`GET /anagrams/size/:x.json`
+`GET /sets/anagrams/size/:x.json`
 
 :x can be a value > 1 or "max" to return the anagram set(s) that contains the most words
 
-Example: ```curl -i -X GET http://localhost:5000/anagrams/size/3.json```
+Example: ```curl -i -X GET http://localhost:5000/sets/anagrams/size/3.json```
 
 **Response**
 ```
