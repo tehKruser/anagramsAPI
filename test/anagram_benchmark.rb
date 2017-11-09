@@ -13,8 +13,8 @@ MAX_I = 1_000
 MAX_J_MULT = 10
 INC_I_MULT = 10
 INC_J_MULT = 2
-POST_BM = true
-GET_BM = true
+POST_BM = false
+GET_BM = false
 DELETE_BM = true
 GET_STATS_BM = true
 
@@ -31,7 +31,7 @@ words = data(FILENAME)
 
 # Post Benchmarking
 if POST_BM
-	puts("<<<<<POST Words Benchmarking>>>>\nN\tTime")
+	puts("<<<<<POST Words Benchmarking>>>>>\nN\tTime")
 	run_data = []
 	i = 10
 	while i <= MAX_I
@@ -71,7 +71,7 @@ end
 
 # Get Anagram Benchmarking
 if GET_BM
-	puts("<<<<<GET Anagrams Benchmarking>>>>\nN\tTime")
+	puts("<<<<<GET Anagrams Benchmarking>>>>>\nN\tTime")
 	run_data = []
 	i = 10
 	while i <= MAX_I
@@ -113,7 +113,7 @@ end
 
 # Delete Anagram Benchmarking
 if DELETE_BM
-	puts("<<<<<DELETE Words Benchmarking>>>>\nN\tTime")
+	puts("<<<<<DELETE Words Benchmarking>>>>>\nN\tTime")
 	run_data = []
 	i = 10
 	while i <= MAX_I
@@ -155,7 +155,7 @@ end
 
 # Get Stats Benchmarking
 if GET_STATS_BM
-	puts("<<<<<GET Stats Benchmarking>>>>\nN\tTime")
+	puts("<<<<<GET Stats Benchmarking>>>>>\nN\tTime")
 	run_data = []
 	i = 10
 	while i <= MAX_I
