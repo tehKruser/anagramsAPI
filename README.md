@@ -77,6 +77,9 @@ Example: ```curl -i -X POST -d '{ "words": ["read", "dear", "dare"] }' http://12
 ```
 HTTP/1.0 201 CREATED
 ```
+```
+body
+```
 
 ## Delete a single word
 
