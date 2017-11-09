@@ -258,6 +258,13 @@ Finished in 0.3829484 seconds.
 
 **Results**
 
+POST words
+
+GET anagrams
+
+DELETE words
+
+GET stats
 
 
 
