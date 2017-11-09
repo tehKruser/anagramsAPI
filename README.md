@@ -71,7 +71,12 @@ Name  | Type         | Description
 ----- | ------------ | -------------
 words | String array | words as strings to be posted to data store are in an array
 
-Example: ```curl -i -X POST -d '{ "words": ["read", "dear", "dare"] }'```
+Example: ```curl -i -X POST -d '{ "words": ["read", "dear", "dare"] }' http://127.0.0.1:5000/words.json```
+
+**Response**
+```
+
+```
 
 ## Delete a single word
 
