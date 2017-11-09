@@ -228,20 +228,36 @@ Admittedly, I had not used Redis before, but I had already started researching i
 
 **Python and Flask**
 
-I was already familiar with developing API's in Python and Google App Engine using webapp2, so I started researching if Redis could be used in the GAE standard environment. The answer was no, but it could be used with the flexible environment. This bit of research turned me on to Flask, which looked easy and fun, so I decided to use it as the API framework.
-- Why Python/Flask?
-
+I was already familiar with developing API's in Python and Google App Engine using webapp2, so I started researching if Redis could be used in the GAE standard environment. The answer was 'no', but it could be used with the flexible environment. This bit of research turned me on to Flask, which looked easy and fun, so I decided to use it as the API framework and develop on my local machine.
 
 ## Testing
 
-- Discussion
-- Results
+- Edge cases: returning 1 anagram
+- running stats after various scenarios
+
+**Results**
+
+```
+$ ruby anagram_test.rb
+Loaded suite anagram_test
+Started
+......................
+
+Finished in 0.3829484 seconds.
+---------------------------------------------------------------------------------------------------------------------
+22 tests, 59 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+100% passed
+---------------------------------------------------------------------------------------------------------------------
+57.45 tests/s, 154.07 assertions/s
+```
 
 
 ## Benchmarking
 
 - Discussion
-- Results
+
+**Results**
+
 
 
 
