@@ -1,18 +1,34 @@
-# anagrams API- Ibotta Candidate Project
-=========
+# anagrams API- Ibotta Candidate Project 
+by Justin Kruse
 
-
-# The Project
 
 ---
+- project description
+Ibotta project requirements can be found [here](/)
+- how to compile and run
+- how to use it
+- api endpoints
+- testing
+  - edge cases
+- implementation details
+  - which data store I decided to use
+  - limits on words stored or returned?
+- other features that could be useful
+
+
+
 
 The project is to build an API that allows fast searches for [anagrams](https://en.wikipedia.org/wiki/Anagram). `dictionary.txt` is a text file containing every word in the English dictionary. Ingesting the file doesn’t need to be fast, and you can store as much data in memory as you like.
 
 The API you design should respond on the following endpoints as specified.
 
-- ```POST``` [/words.json]():	Takes a JSON array of English-language words and adds them to the corpus (data store).
-- `GET /anagrams/:word.json`:
-  - Returns a JSON array of English-language words that are anagrams of the word passed in the URL.
+*POST /words.json*
+---
+Takes a JSON array of English-language words and adds them to the corpus (data store).
+```
+GET `/anagrams/:word.json`
+```
+Returns a JSON array of English-language words that are anagrams of the word passed in the URL.
   - This endpoint should support an optional query param that indicates the maximum number of results to return.
 - `DELETE /words/:word.json`: Deletes a single word from the data store.
 - `DELETE /words.json`: Deletes all contents of the data store.
