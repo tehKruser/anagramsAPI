@@ -120,7 +120,7 @@ Get anagrams for a word:
 
 **Parameters**
 
-Name        | Type          | Description
+:Name       | :Type         |: Description
 ----------- | ------------- | -------------
 limit       | int           | maximum number of anagrams to return
 propernouns | boolean       | true (default): allow propernouns<br>false: do not return propernouns
