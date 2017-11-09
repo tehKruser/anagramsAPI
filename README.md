@@ -1,5 +1,4 @@
-# anagramsAPI
-Ibotta Candidate Project
+# anagrams API- Ibotta Candidate Project
 =========
 
 
@@ -11,7 +10,10 @@ The project is to build an API that allows fast searches for [anagrams](https://
 
 The API you design should respond on the following endpoints as specified.
 
-- `POST /words.json`: Takes a JSON array of English-language words and adds them to the corpus (data store).
+```ruby
+'POST /words.json'
+```
+: Takes a JSON array of English-language words and adds them to the corpus (data store).
 - `GET /anagrams/:word.json`:
   - Returns a JSON array of English-language words that are anagrams of the word passed in the URL.
   - This endpoint should support an optional query param that indicates the maximum number of results to return.
@@ -121,4 +123,3 @@ Suggestions for documentation topics include:
 ---
 
 Please provide the code for the assignment either in a private repository (GitHub or Bitbucket) or as a zip file. If you have a deliverable that is deployed on the web please provide a link, otherwise give us instructions for running it locally.
-
