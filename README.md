@@ -116,6 +116,7 @@ HTTP/1.0 204 NO CONTENT
 
 ## Get anagrams for a word
 Get anagrams for a word:
+
 `GET /anagrams/:word.json`
 
 **Parameters**
@@ -141,7 +142,8 @@ HTTP/1.0 200 OK
 ```
 
 ## Get anagram sets containing at least x words
-Get all anagrams with at least :x in the group.
+Get all sets of anagrams with at least :x words:
+
 `GET /sets/anagrams/size/:x.json`
 
 :x can be a value > 1 or "max" to return the anagram set(s) that contains the most words
@@ -182,8 +184,26 @@ HTTP/1.0 200 OK
 
 
 ## Get stats on words contained in the data store
+Get stats for words in data store:
 
+`GET /words/stats.json`
 
+Example: ```curl -i -X GET http://localhost:5000/words/stats.json```
+
+**Response**
+```
+HTTP/1.0 200 OK
+
+{
+  "count": 9,
+  "length": {
+    "average": 3.56,
+    "max": 5,
+    "median": 4.0,
+    "min": 2
+  }
+}
+```
 
 
 ## Design
