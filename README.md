@@ -90,8 +90,6 @@ Example: ```curl -i -X DELETE http://localhost:5000/words/read.json```
 HTTP/1.0 204 NO CONTENT
 ```
 
-
-
 ## Delete a word and its anagrams
 
 
