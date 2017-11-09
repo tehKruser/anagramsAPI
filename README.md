@@ -25,8 +25,7 @@ Linux/Ubuntu
 
 **Redis for data store**
 1. [Install](https://redis.io/topics/quickstart)
-2. Start
-```redis-server --daemonize yes```
+2. Start:  ```redis-server --daemonize yes```
 
 **Python and Flask**
 1. Install [Python](https://packaging.python.org/guides/installing-using-linux-tools/). Version 2.7
