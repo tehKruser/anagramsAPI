@@ -5,7 +5,7 @@ by Justin Kruse
 
 The anagram API is my submission for the Ibotta candidate project. Requirements can be found in the [Ibotta folder](/ibotta).
 
-Contents
+## Contents
 1. [Run locally](#run-locally)
 2. [Add words](#add-words)
 3. [Delete a single word](#delete-a-single-word)
