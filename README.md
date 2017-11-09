@@ -12,7 +12,7 @@ This anagram API is my submission for the Ibotta Candidate Project. Requirements
 4. [Delete a word and its anagrams](#delete-a-word-and-its-anagrams)
 5. [Delete all words from the data store](#delete-all-words-from-the-data-store)
 6. [Get anagrams for a word](#get-anagrams-for-a-word)
-7. [Get words with at least X anagrams](#get-words-with-at-least-x-anagrams)
+7. [Get anagram sets containing at least x words](#get-anagrams-with-at-least-x-words)
 8. [Get stats on words contained in the data store](#get-stats-on-words-contained-in-the-data-store)
 9. [Design](#design)
 10. [Testing](#testing)
@@ -140,7 +140,7 @@ HTTP/1.0 200 OK
 }
 ```
 
-## Get words with at least X anagrams
+## Get anagram sets containing at least x words
 Get all anagrams with at least :x in the group.
 `GET /anagrams/size/:x.json`
 
