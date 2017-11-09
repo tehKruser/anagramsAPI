@@ -57,6 +57,8 @@ To populate words from dictinoary in data store:
 1. Redis shutdown: ```redis-cli shutdown```
 2. App shutdown, Terminal 2: Ctrl+c
 
+---
+
 ## Add words
 
 
