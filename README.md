@@ -1,10 +1,22 @@
 # anagrams API- Ibotta Candidate Project 
 by Justin Kruse
 
-
 ---
+
+The features of this API allow a client to:
+* Add words to the data store
+* Delete a single word, a word and its anagrams or all words from the data store
+* Get anagrams for a word
+  * a query parameter provides the option to filter proper nouns from the anagram set
+  * a query parameter provides the option to limit the number of anagrams to return
+* Get words with the most anagrams
+* Get words with a number of anagrams >= X
+* 
+* Get stats on the words contained within the data store
+
+This is my submission for an [Ibotta candidate project](/ibotta). 
+
 - project description
-Ibotta project requirements can be found [here](/ibotta)
 - how to compile and run
 - how to use it
 - api endpoints
