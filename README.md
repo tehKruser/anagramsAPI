@@ -20,8 +20,17 @@ Contents
 11. [Other features that could be useful](#other-features-that-could-be-useful)
 
 ## Run locally
+**OS**
+Linux/Ubuntu
 
+**Redis for data store**
+1. [Install](https://redis.io/topics/quickstart)
+2. Start
+```redis-server --daemonize yes```
 
+**Python and Flask**
+1. Install [Python](https://packaging.python.org/guides/installing-using-linux-tools/). Version 2.7
+2. Install [Flask](http://flask.pocoo.org/docs/0.12/installation/)
 
 
 ## Add words
