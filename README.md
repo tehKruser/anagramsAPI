@@ -22,15 +22,27 @@ Contents
 **OS**
 Linux/Ubuntu
 
+###### Installs
 **Redis for data store**
-1. [Install](https://redis.io/topics/quickstart)
-2. Start:  ```redis-server --daemonize yes```
+- Install [Redis](https://redis.io/topics/quickstart)
 
 **Python: Flask and Redis**
-1. Install [Python](https://packaging.python.org/guides/installing-using-linux-tools/). Version 2.7
-2. Install [Flask](http://flask.pocoo.org/docs/0.12/installation/)
-3. Install [Redis](https://pypi.python.org/pypi/redis) for Python
+- Install [Python](https://packaging.python.org/guides/installing-using-linux-tools/). Version 2.7
+- Install [Flask](http://flask.pocoo.org/docs/0.12/installation/)
+- Install [Redis](https://pypi.python.org/pypi/redis) for Python
 
+**Ruby**
+- Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+
+###### Run
+1. Start Redis server: ```redis-server --daemonize yes```
+2. Clone project to desired directory
+3. Terminal 1: Run App
+
+From project directory, run app:
+-  ```cd app```
+- ```FLASK_APP=anagrams.py flask run```
+4. 
 
 ## Add words
 
