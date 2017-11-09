@@ -10,7 +10,7 @@ The project is to build an API that allows fast searches for [anagrams](https://
 
 The API you design should respond on the following endpoints as specified.
 
-```POST``` [/words.json]():	Takes a JSON array of English-language words and adds them to the corpus (data store).
+- ```POST``` [/words.json]():	Takes a JSON array of English-language words and adds them to the corpus (data store).
 - `GET /anagrams/:word.json`:
   - Returns a JSON array of English-language words that are anagrams of the word passed in the URL.
   - This endpoint should support an optional query param that indicates the maximum number of results to return.
