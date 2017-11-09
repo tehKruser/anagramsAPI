@@ -49,8 +49,12 @@ From project directory:
 - Test: ```ruby anagram_test.rb```
 - Benchmark: ```ruby anagram_benchmark.rb```
 
+Optional:
+To populate words from dictinoary in data store:
+- In project directory /script: ```ruby anagram_dbload``` (approx. 3 minutes)
+
 **Stop**
-1. Redis shutdown, Terminal 1: ```redis-cli shutdown```
+1. Redis shutdown: ```redis-cli shutdown```
 2. App shutdown, Terminal 2: Ctrl+c
 
 ## Add words
