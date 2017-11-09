@@ -223,7 +223,7 @@ class TestCases < Test::Unit::TestCase
     # post more words to data store
     res = @client.post('/words.json', nil, {"words" => ["it", "cat", "act", "happy"] })
 
-    res = @client.get('/anagrams/size/max.json')
+    res = @client.get('/sets/anagrams/size/max.json')
 
     assert_equal('200', res.code, "Unexpected response code")
 
@@ -240,7 +240,7 @@ class TestCases < Test::Unit::TestCase
     # post more words to data store
     res = @client.post('/words.json', nil, {"words" => ["it", "cat", "act", "tac", "happy"] })
 
-    res = @client.get('/anagrams/size/max.json')
+    res = @client.get('/sets/anagrams/size/max.json')
 
     assert_equal('200', res.code, "Unexpected response code")
 
@@ -262,7 +262,7 @@ class TestCases < Test::Unit::TestCase
     # post more words to data store
     res = @client.post('/words.json', nil, {"words" => ["it", "cat", "act", "happy"] })
 
-    res = @client.get('/anagrams/size/2.json')
+    res = @client.get('/sets/anagrams/size/2.json')
 
     assert_equal('200', res.code, "Unexpected response code")
 
@@ -284,7 +284,7 @@ class TestCases < Test::Unit::TestCase
     # post addtional words
     res = @client.post('/words.json', nil, {"words" => ["it", "cat", "act", "happy"] })
 
-    res = @client.get('/anagrams/size/-2.json')
+    res = @client.get('/sets/anagrams/size/-2.json')
 
     assert_equal('200', res.code, "Unexpected response code")
 
@@ -334,20 +334,12 @@ class TestCases < Test::Unit::TestCase
     assert_equal(expected["anagrams"].sort, body["anagrams"].sort)
   end
 
-  def test_deleting_word_and_its_anagrams_valid_word
+  def test_deleting_word_and_its_anagrams
     #pend
 
     res = @client.delete('/words/read/anagrams.json')
 
     assert_equal('204', res.code, "Unexpected response code")
-  end
-
-  def test_deleting_word_and_its_anagrams_invalid_word
-    #pend
-
-    res = @client.delete('/words/drea/anagrams.json')
-
-    assert_equal('403', res.code, "Unexpected response code")
   end
 
   def test_fetching_if_words_are_anagrams_valid
