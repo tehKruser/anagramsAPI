@@ -45,7 +45,7 @@ From project directory:
 4. Terminal 2: API calls, Test, Benchmark
 From project directory:
 - ```cd test```
-- API calls: see list below
+- API calls: see [Ibotta README.md](https://github.com/tehKruser/anagramsAPI/blob/master/ibotta/README.md) for instructions on curl or irb
 - Test: ```ruby anagram_test.rb```
 - Benchmark: ```ruby anagram_benchmark.rb```
 
