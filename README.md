@@ -18,6 +18,8 @@ Contents
 10. [Testing](#testing)
 11. [Other features that could be useful](#other-features-that-could-be-useful)
 
+---
+
 ## Run locally
 **OS**
 Linux/Ubuntu
