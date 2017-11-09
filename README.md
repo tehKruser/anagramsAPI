@@ -26,9 +26,10 @@ Linux/Ubuntu
 1. [Install](https://redis.io/topics/quickstart)
 2. Start:  ```redis-server --daemonize yes```
 
-**Python and Flask**
+**Python: Flask and Redis**
 1. Install [Python](https://packaging.python.org/guides/installing-using-linux-tools/). Version 2.7
 2. Install [Flask](http://flask.pocoo.org/docs/0.12/installation/)
+3. Install [Redis](https://pypi.python.org/pypi/redis) for Python
 
 
 ## Add words
