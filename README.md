@@ -79,7 +79,16 @@ HTTP/1.0 201 CREATED
 ```
 
 ## Delete a single word
+Add words to the data store:
 
+`DELETE /words/:word.json`
+
+Example: ```curl -i -X DELETE http://localhost:5000/words/read.json```
+
+**Response**
+```
+HTTP/1.0 201 CREATED
+```
 
 
 
