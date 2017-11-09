@@ -79,7 +79,7 @@ HTTP/1.0 201 CREATED
 ```
 
 ## Delete a single word
-Add words to the data store:
+Removes a word from the data store:
 
 `DELETE /words/:word.json`
 
@@ -91,14 +91,28 @@ HTTP/1.0 204 NO CONTENT
 ```
 
 ## Delete a word and its anagrams
+Removes a word from the data store:
 
+`DELETE /words/:word/anagrams.json`
 
+Example: ```curl -i -X DELETE http://localhost:5000/words/read/anagrams.json```
 
+**Response**
+```
+HTTP/1.0 204 NO CONTENT
+```
 
 ## Delete all words from the data store
+Removes all words from the data store:
 
+`DELETE /words.json`
 
+Example: ```curl -i -X DELETE http://localhost:5000/words.json```
 
+**Response**
+```
+HTTP/1.0 204 NO CONTENT
+```
 
 ## Get anagrams for a word
 
