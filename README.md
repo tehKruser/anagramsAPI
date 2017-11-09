@@ -262,7 +262,7 @@ POST words
 
 ![POST words](https://github.com/tehKruser/anagramsAPI/tree/master/img/bm_post_words.JPG)
 
-![POST words](tehKruser.github.com/anagramsAPI/img/bm_post_words.JPG) 
+![POST words](https://tehkruser.github.io/anagramsAPI/img/bm_post_words.JPG)
 
 GET anagrams
 
