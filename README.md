@@ -8,7 +8,7 @@ The anagram API is my submission for the Ibotta candidate project. Requirements 
 
 i. [Run locally](#run-locally)
   ii. [Add words](#add-words)
-  iii. [Delete a single word](Delete-a-single-word)
+    iii. [Delete a single word](#Delete-a-single-word)
 
 
 
