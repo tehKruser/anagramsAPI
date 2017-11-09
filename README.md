@@ -35,14 +35,23 @@ Linux/Ubuntu
 - Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 
 ###### Run
+**Start**
 1. Start Redis server: ```redis-server --daemonize yes```
 2. Clone project to desired directory
 3. Terminal 1: Run App
-
-From project directory, run app:
--  ```cd app```
+From project directory:
+- ```cd app```
 - ```FLASK_APP=anagrams.py flask run```
-4. 
+4. Terminal 2: API calls, Test, Benchmark
+From project directory:
+- ```cd test```
+- API calls: see list below
+- Test: ```ruby anagram_test.rb```
+- Benchmark: ```ruby anagram_benchmark.rb```
+
+**Stop**
+1. Redis shutdown, Terminal 1: ```redis-cli shutdown```
+2. App shutdown, Terminal 2: Ctrl+c
 
 ## Add words
 
