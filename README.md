@@ -189,6 +189,12 @@ Post a set of words and receive a reponse if all words are anagrams of eachother
 
 `POST /anagrams.json`
 
+**Input**
+
+Name  | Type         | Description
+----- | ------------ | -------------
+words | string array | words as strings to check if all are anagrams of eachother
+
 Example: ```curl -i -X POST -d '{ "words": ["dork", "dear", "dare"] }' http://127.0.0.1:5000/anagrams.json```
 
 **Response**
