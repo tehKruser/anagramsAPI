@@ -4,7 +4,7 @@ by Justin Kruse
 
 ---
 - project description
-Ibotta project requirements can be found [here](/)
+Ibotta project requirements can be found [here](/ibotta)
 - how to compile and run
 - how to use it
 - api endpoints
