@@ -4,14 +4,18 @@ by Justin Kruse
 ---
 ## Anagrams
 
-  i. [Run Locally](#run-locally)
-  
-  ii. 
+The anagram API is my submission for the Ibotta candidate project. Requirements can be found in the [Ibotta folder](/ibotta).
+
+i. [Run locally](#run-locally)
+  ii. [Add words](#add-words)
+  iii. [Delete a single word](Delete-a-single-word)
 
 
 
 
-The anagram API is my submission for the Ibotta candidate project. The features of this API allow a client to:
+
+
+The features of this API allow a client to:
 * Add words to the data store
 * Delete a single word, a word and its anagrams or all words from the data store
 * Get anagrams for a word
@@ -23,10 +27,63 @@ The anagram API is my submission for the Ibotta candidate project. The features 
   * count, min/max/median/average word length
 
 
-Project requirement details can be found in the [Ibotta folder](/ibotta).
 
 
-## Run Locally
+
+## Run locally
+
+
+
+
+## Add words
+
+
+
+
+## Delete a single word
+
+
+
+
+## Delete a word and its anagrams
+
+
+
+
+## Delete all words from the data store
+
+
+
+
+## Get anagrams for a word
+
+
+
+
+## Get words with at least X anagrams / Get most words with the most anagrams
+
+
+
+
+## Get stats on words contained in the data store
+
+
+
+
+## Design
+
+
+
+
+## Testing
+
+
+
+
+## Other features that could be useful
+
+
+
 
 - project description
 - how to compile and run
