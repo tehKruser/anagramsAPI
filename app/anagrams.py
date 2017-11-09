@@ -241,7 +241,6 @@ def words(data_format=None):
 def delete_word(word=None, data_format=None):
 	if request.method == 'DELETE':
 		removed = db0.srem(keyWord(word), word)
-		# remove anagrams of word if word is not in data store
 		if removed == 1:
 			updateDB1WordLengths(len(word), -1)
 			updateDB1GroupSizes(keyWord(word), -1)
@@ -251,15 +250,12 @@ def delete_word(word=None, data_format=None):
 @app.route("/words/<word>/anagrams.<data_format>", methods=['DELETE'])
 def delete_anagrams(word=None, data_format=None):
 	if request.method == 'DELETE':
-		if word in list(db0.smembers(keyWord(word))):
-			anagramCount = int(db0.scard(keyWord(word)))
-			db0.delete(keyWord(word))
-			removed = db1.srem(groupKeyWord(anagramCount), keyWord(word))
-			if removed == 1:
-				updateDB1WordLengths(len(word), -anagramCount)
-			return '', 204
-		else:
-			return "403: Forbidden. Word not in data store.", 403
+		anagramCount = int(db0.scard(keyWord(word)))
+		db0.delete(keyWord(word))
+		removed = db1.srem(groupKeyWord(anagramCount), keyWord(word))
+		if removed == 1:
+			updateDB1WordLengths(len(word), -anagramCount)
+		return '', 204
 
 
 @app.route("/words/stats.<data_format>", methods=['GET'])
