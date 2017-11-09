@@ -183,7 +183,21 @@ HTTP/1.0 200 OK
 }
 ```
 
+## Check if a set of words are anagrams of eachother
+Post a set of words and receive a reponse if all words are anagrams of eachother:
 
+`POST /anagrams.json`
+
+Example: ```curl -i -X POST -d '{ "words": ["dork", "dear", "dare"] }' http://127.0.0.1:5000/anagrams.json```
+
+**Response**
+```
+HTTP/1.0 200 OK
+
+{
+  "anagrams": "false"
+}
+```
 
 ## Get stats on words contained in the data store
 Get stats for words in data store:
