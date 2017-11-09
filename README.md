@@ -140,8 +140,6 @@ HTTP/1.0 200 OK
 }
 ```
 
-
-
 ## Get words with at least X anagrams
 
 
