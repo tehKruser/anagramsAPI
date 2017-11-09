@@ -14,11 +14,11 @@ This anagram API is my submission for the Ibotta Candidate Project. Requirements
 6. [Get anagrams for a word](#get-anagrams-for-a-word)
 7. [Get anagram sets containing at least x words](#get-anagram-sets-containing-at-least-x-words)
 8. [Check if a set of words are anagrams of eachother](#check-if-a-set-of-words-are-anagrams-of-eachother)
-8. [Get stats on words contained in the data store](#get-stats-on-words-contained-in-the-data-store)
-9. [Design](#design)
-10. [Testing](#testing)
-11. [Benchmarking](#benchmarking)
-12. [Other features that could be useful](#other-features-that-could-be-useful)
+9. [Get stats on words contained in the data store](#get-stats-on-words-contained-in-the-data-store)
+10. [Design](#design)
+11. [Testing](#testing)
+12. [Benchmarking](#benchmarking)
+13. [Other features that could be useful](#other-features-that-could-be-useful)
 
 ---
 
