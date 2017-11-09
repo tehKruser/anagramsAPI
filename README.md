@@ -1,8 +1,7 @@
-# anagrams API- Ibotta Candidate Project 
+# Anagrams API- Ibotta Candidate Project 
 by Justin Kruse
 
 ---
-## Anagrams
 
 The anagram API is my submission for the Ibotta candidate project. Requirements can be found in the [Ibotta folder](/ibotta).
 
