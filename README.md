@@ -13,6 +13,7 @@ This anagram API is my submission for the Ibotta Candidate Project. Requirements
 5. [Delete all words from the data store](#delete-all-words-from-the-data-store)
 6. [Get anagrams for a word](#get-anagrams-for-a-word)
 7. [Get anagram sets containing at least x words](#get-anagram-sets-containing-at-least-x-words)
+8. [Check if a set of words are anagrams of eachother](#check-if-a-set-of-words-are-anagrams-of-eachother)
 8. [Get stats on words contained in the data store](#get-stats-on-words-contained-in-the-data-store)
 9. [Design](#design)
 10. [Testing](#testing)
