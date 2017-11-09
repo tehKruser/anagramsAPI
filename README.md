@@ -2,6 +2,13 @@
 by Justin Kruse
 
 ---
+## Anagrams
+
+  i. [Run locally](#run-locally)
+  ii. 
+
+
+
 
 The anagram API is my submission for the Ibotta candidate project. The features of this API allow a client to:
 * Add words to the data store
@@ -16,6 +23,9 @@ The anagram API is my submission for the Ibotta candidate project. The features 
 
 
 Project requirement details can be found in the [Ibotta folder](/ibotta).
+
+
+# run locally
 
 - project description
 - how to compile and run
