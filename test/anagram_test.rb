@@ -231,7 +231,12 @@ class TestCases < Test::Unit::TestCase
 
     expected_sets = [{"anagrams"=>[%w(read dear dare)], "size"=>3}]
 
-    assert_equal(expected_sets, body['sets'])
+    expected_sets.zip(body['sets']).each do |expected, actual|
+      (expected["anagrams"].sort).zip(actual["anagrams"].sort).each do |expected_anagrams, actual_anagrams|
+        assert_equal(expected_anagrams.sort, actual_anagrams.sort)
+      end
+      assert_equal(expected["size"], actual["size"])
+    end
   end
 
   def test_fetching_most_anagrams_2_sets
