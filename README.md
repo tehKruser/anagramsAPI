@@ -239,8 +239,8 @@ Below is a visualization of adding a word to the data store.
 
 There are 3 main aspects:
 1. Track words that are anagrams of one another in the db0 set (database 0)
-2. Track data about how many words have X length in the db1 list - for stat tracking
-3. Track which anagram keys have X group size - for retreiving sets of anagrams of size >= X
+2. Track data about how many words have :x length in the db1 list - for stat tracking
+3. Track which anagram keys have :x group size - for retreiving sets of anagrams of size >= :x
 
 **Why Redis?**
 
@@ -295,7 +295,13 @@ Finished in 0.3829484 seconds.
 
 ## Benchmarking
 
-- Discussion
+When implementing the Redis database, I was taking note of the time complexities that Redis documentation listed for various data structures and functions. Sets and lists had methods that were all O(1), whereas sorted sets had O(log N) to remove and add.  So, I designed my data base and functions around O(1) methods. 
+
+The plots under 'Results' show the amount of time it took to make N calls to the API. I used a log scale transformation to help visualize that the data is linear. This shows that making N calls to the API is O(N) time complexity.
+
+Every operation within the API was essentially C_1 * O(1), where C_1 is some constant time to execute the lines of code. Every call to the API from the benchmark module was C_2 * O(1), where C_2 is the time to receive the data back. This means that total time is (C_1 + C_2) * O(1) = C * O(1). If we are making N calls, then our time complexity is O(N).
+
+You may notice that adding words is much faster than deleting or getting, but that is because 100 words at a time were sent in a POST, thus dividing the C_2 time by 100, but increasing C_1 by some factor close to 100.  The reduced time makes sense because C_1 is server side operations and will be much faster than bundling and transferring information across the network. 
 
 **Results**
 ```
@@ -375,10 +381,6 @@ GET stats
 ![GET words](https://tehkruser.github.io/anagramsAPI/img/bm_get_stats.JPG)
 
 
-
 ## Other features that could be useful
 
-- Get stats on anagram sets (i.e. how many sets exist with only :x words)
-
-
-formatting done in http://prose.io
+One feature that I thought would be fun to implement is to get stats on anagrams. For example, how many words have only :x anagrams? For this to happen, I think another list would work where each index  represents how many words only have an anagram count equal to index.
