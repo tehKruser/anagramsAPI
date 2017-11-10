@@ -231,7 +231,7 @@ HTTP/1.0 200 OK
 
 ## Design
 
-**Data store Design with Redis**
+**Data Store Design with Redis**
 
 Visuals here. 
 
