@@ -265,17 +265,17 @@ I was already familiar with developing API's in Python and Google App Engine usi
 **Edge cases**
 
 - When returning 1 anagram: Redis has a "srandmembers" method that will return the number of members passed in as an argurment. Initially, it was my intent to use this, but I ran into the issue of possibly getting back the :word supplied in the URL, or if proper nounds were being filterd, then a proper noun could be the 1 random member returned. 
-  The solution was to 1) return all members, 2) filter :word and proper noun accordingly 3) use Python's random sample method on a list object to get the number of anagrams requested in the parameters.
+
+The solution was to 1) return all members, 2) filter :word and proper noun accordingly 3) use Python's random sample method on a list object to get the number of anagrams requested in the parameters.
 
 
 - Running stats after various scenarios: I decided to do a few unit tests on 'GET stats' because I wanted to test that stats were being updated properly after the following actions:
   - adding a word
   - deleting 1 word
   - deleting 1 word and all of its anagrams
-   These three actions required the stats to be updated in a different way.
  
+ These three actions required the stats to be updated in a different way.
  
-
 **Results**
 
 ```
