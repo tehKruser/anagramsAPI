@@ -297,9 +297,9 @@ Finished in 0.3829484 seconds.
 
 When implementing the Redis database, I was taking note of the time complexities that Redis documentation listed for various data structures and functions. Sets and lists had methods that were all O(1), whereas sorted sets had O(log N) to remove and add.  So, I designed my data base and functions around O(1) methods. 
 
-The plots under 'Results' show the amount of time it took to make N calls to the API. I used a log scale transformation to help visualize that the data is linear. This shows that making N calls to the API is O(N) time complexity.
+The plots under 'Results' show the amount of time it took to make N calls to the API. I used a log scale transformation to help visualize that the data for GET POST and DELETE of a word is linear. This shows that making N calls to the API is O(N) time complexity. For getting stats, however, the time was fairly consistent, regardless of how big N got. This is due to the stats being tracked in a list in db1. After loading the english language dictionary into the database, then at most, the list was only 24 in length. So at worst, this API call required iterating through a list of 24 elements.
 
-Every operation within the API was essentially C_1 * O(1), where C_1 is some constant time to execute the lines of code. Every call to the API from the benchmark module was C_2 * O(1), where C_2 is the time to receive the data back. This means that total time is (C_1 + C_2) * O(1) = C * O(1). If we are making N calls, then our time complexity is O(N).
+Every operation within the API was essentially C_1 * O(1), where C_1 is some constant time to execute the lines of code. Every call to the API from the benchmark module was C_2 * O(1), where C_2 is the time to receive the data back. This means that total time is (C_1 + C_2) * O(1) = C * O(1). If we are making N calls, then our time complexity is O(N). The number of words in the data store had no effect on the time complexity.
 
 You may notice that adding words is much faster than deleting or getting, but that is because 100 words at a time were sent in a POST, thus dividing the C_2 time by 100, but increasing C_1 by some factor close to 100.  The reduced time makes sense because C_1 is server side operations and will be much faster than bundling and transferring information across the network. 
 
