@@ -233,7 +233,14 @@ HTTP/1.0 200 OK
 
 **Data Store Design with Redis**
 
-Visuals here. 
+Below is a visualization of adding a word to the data store.
+
+![DB Visualization](https://tehkruser.github.io/anagramsAPI/img/db_visualization.JPG)
+
+There are 3 main aspects:
+1. Track words that are anagrams of one another in the db0 set (database 0)
+2. Track data about how many words have X length in the db1 list - for stat tracking
+3. Track which anagram keys have X group size - for retreiving sets of anagrams of size >= X
 
 **Why Redis?**
 
